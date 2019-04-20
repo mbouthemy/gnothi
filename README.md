@@ -10,11 +10,23 @@ The library has some requirements :
  - Hyperledger Composer & Fabric
 
 ## Files structure
-The library contains a lot of files, however each file is made for a specific module of the paper and has been commented.
+The application contains a lot of components.
 
-First the files for each section of the paper :
- - [GAW.py](https://github.com/Marin35/Anomaly-detection-ENSAE/blob/master/anomaly_detection/GAW.py) -> compute the first global features of the module (section 3.1)
- - [communities.py](https://github.com/Marin35/Anomaly-detection-ENSAE/blob/master/anomaly_detection/communities.py) -> compute the communities features (section 3.2)
+First the components :
+ - header -> define the header of the page
+ - sidenav -> define the sidenav of the page
+ - signin -> first login page, define the status (i.e admin or no)
+ - asset-list -> component for the gestion of the assets, contains a component for the form and another for a detailed view
+ - participant-list -> same but for participants
+ - user/transaction -> execute a transaction when log as a user
+ - user/new-firm -> add a new firm as a user
+ 
+ 
+Then the services:
+- AssetsService -> service for the asset requests to the server
+- ParticipantService -> same but with participants
+- MessageService -> use for transmission of boolean (isAdmin, isNotification...)
+
 
 ## Development server
 
