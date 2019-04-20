@@ -1,6 +1,20 @@
 # Gnothi
+*Authors : Marin BOUTHEMY and Nicolas TOUSSAINT*
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
+This project aims to implement a blockchain application to create and visualize it. You can add participants and assets and define permissions for each type of user (admin or no). The application executes request to a server which is linked with the Hyperledger Fabric locally.
+
+## Requirements
+The library has some requirements :
+ - Angular 6
+ - JavaScript
+ - Hyperledger Composer & Fabric
+
+## Files structure
+The library contains a lot of files, however each file is made for a specific module of the paper and has been commented.
+
+First the files for each section of the paper :
+ - [GAW.py](https://github.com/Marin35/Anomaly-detection-ENSAE/blob/master/anomaly_detection/GAW.py) -> compute the first global features of the module (section 3.1)
+ - [communities.py](https://github.com/Marin35/Anomaly-detection-ENSAE/blob/master/anomaly_detection/communities.py) -> compute the communities features (section 3.2)
 
 ## Development server
 
