@@ -1,0 +1,26 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li routerLinkActive="active">
+              <a routerLink="/participants">Participants</a>
+            </li>
+            <li routerLinkActive="active">
+              <a routerLink="/assets">Contrats</a>
+            </li>
+            <li routerLinkActive="active" *ngIf="isAdmin">
+                <a routerLink="signin">On est Admin</a>
+            </li>
+            <li routerLinkActive="active" *ngIf="!isAdmin">
+                <a routerLink="signin">On est User</a>
+            </li>
+            <li routerLinkActive="active" *ngIf="!isAdmin">
+              <a routerLink="/user/transaction">Transaction</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li routerLinkActive="active">
+            <a routerLink="/signin">Se Déconnecter</a>
+          </li>
+        </ul>
+    </div>
+</nav>

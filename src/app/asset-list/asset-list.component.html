@@ -1,0 +1,22 @@
+<app-header></app-header>
+
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Listes des HarborChain</h2>
+    <div class="list-group">
+      <button
+        class="list-group-item"
+        *ngFor="let asset of assets; let i = index"
+        (click)="onViewAsset(i)">
+        <h3 class="list-group-item-heading">
+          {{ asset.name }}
+          <button *ngIf="isAdmin" class="btn btn-default pull-right" (click)="onDeleteAsset(asset)">
+            <span class="glyphicon glyphicon-minus"></span>
+          </button>
+        </h3>
+        <p class="list-group-item-text">{{ asset.owner }}</p>
+      </button>
+    </div>
+    <button *ngIf="isAdmin" class="btn btn-primary" (click)="onNewAsset()">Nouveau Contrat</button>
+  </div>
+</div>

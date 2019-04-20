@@ -1,0 +1,22 @@
+<app-header></app-header>
+
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Participants de la Blockchain</h2>
+    <div class="list-group">
+      <button
+        class="list-group-item"
+        *ngFor="let participant of participants; let i = index"
+        (click)="onViewParticipant(i)">
+        <h3 class="list-group-item-heading">
+          {{ participant.name }}
+          <button *ngIf="isAdmin" class="btn btn-default pull-right" (click)="onDeleteParticipant(participant)">
+            <span class="glyphicon glyphicon-minus"></span>
+          </button>
+        </h3>
+        <p class="list-group-item-text">{{ participant.country }}</p>
+      </button>
+    </div>
+    <button *ngIf="isAdmin" class="btn btn-primary" (click)="onNewParticipant()">Nouveau Participant</button>
+  </div>
+</div>

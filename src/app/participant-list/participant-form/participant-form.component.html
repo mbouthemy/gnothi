@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h2>Ajouter une nouvelle entreprise à la BlockChain</h2>
+    <form [formGroup]="participantForm" (ngSubmit)="onSaveParticipant()">
+      <div class="form-group">
+        <label for="name">Nom</label>
+        <input type="text" id="name"
+               class="form-control" formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="leid">LEID (Legal Entity Identifier)</label>
+        <input type="number" id="leid"
+               class="form-control" formControlName="leid">
+      </div>
+      <div class="form-group">
+        <label for="country">Pays</label>
+        <input type="text" id="country"
+               class="form-control" formControlName="country">
+      </div>
+      <div class="form-group">
+        <label for="purpose">Informations</label>
+        <textarea id="purpose"
+                  class="form-control" formControlName="purpose">
+        </textarea>
+      </div>
+      <button class="btn btn-success" [disabled]="participantForm.invalid"
+              type="submit">Enregistrer
+      </button>
+
+    </form>
+  </div>
+</div>
