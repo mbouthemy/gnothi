@@ -1,6 +1,32 @@
 # Gnothi
+*Authors : Marin BOUTHEMY and Nicolas TOUSSAINT*
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
+This project aims to implement a blockchain application to create and visualize it. You can add participants and assets and define permissions for each type of user (admin or no). The application executes request to a server which is linked with the Hyperledger Fabric locally.
+
+## Requirements
+The library has some requirements :
+ - Angular 6
+ - JavaScript
+ - Hyperledger Composer & Fabric
+
+## Files structure
+The application contains a lot of components.
+
+First the components :
+ - header -> define the header of the page
+ - sidenav -> define the sidenav of the page
+ - signin -> first login page, define the status (i.e admin or no)
+ - asset-list -> component for the gestion of the assets, contains a component for the form and another for a detailed view
+ - participant-list -> same but for participants
+ - user/transaction -> execute a transaction when log as a user
+ - user/new-firm -> add a new firm as a user
+ 
+ 
+Then the services:
+- AssetsService -> service for the asset requests to the server
+- ParticipantService -> same but with participants
+- MessageService -> use for transmission of boolean (isAdmin, isNotification...)
+
 
 ## Development server
 
