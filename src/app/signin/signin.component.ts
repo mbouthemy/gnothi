@@ -7,7 +7,7 @@ import { MessageService } from '../services/message.service';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.css']
+  styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent implements OnInit {
 
@@ -38,14 +38,14 @@ export class SigninComponent implements OnInit {
     if (email === 'admin@test.com') {
       this.router.navigate(['/admin']);
       this.messageService.changeAdmin();
-      console.log('value: ' + this.isAdmin);
     } else if (email === 'user@test.com') {
       this.router.navigate(['/user']);
       this.messageService.changeUser();
-      console.log('value: ' + this.isAdmin);
     } else {
       this.errorMessage = 'Erreur, adresse mail non reconnue';
     }
+
+
 
   }
 

@@ -9,12 +9,16 @@ import { MessageService } from '../services/message.service';
 export class HeaderComponent implements OnInit {
 
   isAdmin: boolean;
-
+  isNotification: boolean;
+  
   constructor(private messageService: MessageService) { }
   
   ngOnInit() {
-  this.messageService.isAdmin.subscribe(data => this.isAdmin = data);
-  console.log('value' + this.isAdmin);
+    this.messageService.isAdmin.subscribe(data => this.isAdmin = data);
+    this.messageService.isNotification.subscribe(data => this.isNotification = data);
+  }
+
+  ngOnDestroy(): void {
   }
 
 }

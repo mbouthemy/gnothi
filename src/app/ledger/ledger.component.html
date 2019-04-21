@@ -1,0 +1,20 @@
+<app-header></app-header>
+
+<h1 style="text-align:center;">Liste des Opérations:</h1>
+
+
+<mat-card class="example-card">
+  <mat-card-content>
+<mat-list >
+    <mat-list-item class="pathitem" *ngFor="let operation of operations" style="height: 70px;">
+    <div>
+      <p>Opération : {{ operation.name }} de {{ operation.detail}}.</p>
+      <p>Date: {{ operation.date }}</p>
+    </div>
+  <mat-divider class="background-divider"></mat-divider>
+  </mat-list-item>
+</mat-list>
+</mat-card-content>
+</mat-card>
+
+

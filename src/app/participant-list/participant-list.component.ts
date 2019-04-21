@@ -4,6 +4,8 @@ import { Subscription } from 'rxjs';
 import { ParticipantService } from '../services/participant.service';
 import { Router } from '@angular/router';
 import { MessageService } from '../services/message.service';
+import { Operation } from '../models/operations';
+import { OperationsService } from '../services/operations.service';
 
 @Component({
   selector: 'app-participant-list',
@@ -17,7 +19,8 @@ export class ParticipantListComponent implements OnInit {
   isAdmin: boolean;
 
   constructor(private participantsService: ParticipantService, private router: Router,
-              private messageService: MessageService) {}
+              private messageService: MessageService,
+              private operationService: OperationsService) {}
 
   ngOnInit() {
     this.participantsSubscription = this.participantsService.participantsSubject.subscribe(
@@ -36,6 +39,8 @@ export class ParticipantListComponent implements OnInit {
 
   onDeleteParticipant(participant: Participant) {
     this.participantsService.removeParticipant(participant);
+    const newOperation = new Operation('Destruction', participant.name, new Date().toLocaleString());
+    this.operationService.createNewOperation(newOperation);
   }
 
   onViewParticipant(id: number) {

@@ -1,23 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { Asset } from 'src/app/models/assets';
+import { RequestService } from 'src/app/services/request.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ParticipantService } from '../../services/participant.service';
 import { Participant } from 'src/app/models/participants';
-import { Operation } from 'src/app/models/operations';
-import { OperationsService } from 'src/app/services/operations.service';
+import { MessageService } from 'src/app/services/message.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
-  selector: 'app-participant-form',
-  templateUrl: './participant-form.component.html',
-  styleUrls: ['./participant-form.component.css']
+  selector: 'app-request',
+  templateUrl: './request.component.html',
+  styleUrls: ['./request.component.css']
 })
-export class ParticipantFormComponent implements OnInit {
+export class RequestComponent implements OnInit {
 
   participantForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private participantsService: ParticipantService,
-              private operationService: OperationsService, private router: Router) { }
-              
+  constructor(private formBuilder: FormBuilder, private requestService: RequestService,
+              private messageService: MessageService, private snackBar: MatSnackBar,
+              private router: Router) { }
+
   ngOnInit() {
     this.initForm();
   }
@@ -37,10 +39,13 @@ export class ParticipantFormComponent implements OnInit {
     const country = this.participantForm.get('country').value;
     const purpose = this.participantForm.get('purpose').value;
     const newParticipant = new Participant(name, leid, country, purpose);
-    this.participantsService.createNewParticipant(newParticipant);
-    const newOperation = new Operation('Ajout', name, new Date().toLocaleString());
-    this.operationService.createNewOperation(newOperation);
-    this.router.navigate(['/participants']);
+    this.requestService.createNewParticipant(newParticipant);
+    this.router.navigate(['/user']);
+    // Add the notification.
+    this.messageService.notificationOn();
+    this.snackBar.open("Requête effectuée", "Fermer", {
+      duration: 3000,
+    });
   }
 
 }

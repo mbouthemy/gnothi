@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
-    <h2 style="text-align:center;">Ajouter une entreprise à la BlockChain.</h2>
+    <h2 style="text-align:center;">Demande d'ajout d'un participant</h2>
     <form [formGroup]="participantForm" (ngSubmit)="onSaveParticipant()">
       <div class="form-group">
         <label for="name">Nom</label>
@@ -24,12 +24,17 @@
                   class="form-control" formControlName="purpose">
         </textarea>
       </div>
-      <div class="buttonHolder">
-      <button class="btn btn-success" [disabled]="participantForm.invalid"
-              type="submit">Enregistrer
-      </button>
+      <div class="form-group">
+        <label for="file">Ajouter un document.</label>
+        <input type="file"
+              id="file"
+              (change)="handleFileInput($event.target.files)">
       </div>
-
+      <div class="buttonHolder">
+        <button class="btn btn-success" [disabled]="participantForm.invalid"
+                type="submit">Demander l'ajout à la Blockchain.
+        </button>
+      </div>
     </form>
   </div>
 </div>

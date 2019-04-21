@@ -3,6 +3,8 @@ import { Asset } from 'src/app/models/assets';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AssetsService } from '../../services/assets.service';
+import { OperationsService } from 'src/app/services/operations.service';
+import { Operation } from 'src/app/models/operations';
 
 
 @Component({
@@ -15,6 +17,7 @@ export class AssetFormComponent implements OnInit {
   assetForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private assetsService: AssetsService,
+              private operationService: OperationsService,
               private router: Router) { }
 
   ngOnInit() {
@@ -40,6 +43,8 @@ export class AssetFormComponent implements OnInit {
     const owner = this.assetForm.get('owner').value;
     const newAsset = new Asset(name, value, currency, dateLimit, owner);
     this.assetsService.createNewAsset(newAsset);
+    const newOperation = new Operation('Ajout', name, new Date().toLocaleString());
+    this.operationService.createNewOperation(newOperation);
     this.router.navigate(['/assets']);
   }
 

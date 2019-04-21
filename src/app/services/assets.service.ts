@@ -63,6 +63,20 @@ export class AssetsService {
     this.emitAssets();
   }
 
+  changeOwner(assetName: string, ownerName: string){
+    let key;
+    const query = firebase.database().ref('/assets').orderByChild('name').equalTo(assetName);
+    query.once( 'value', data => {
+      data.forEach(userSnapshot => {
+          const user = userSnapshot.val();
+          key = userSnapshot.key;
+      });
+    });
+
+    firebase.database().ref('/assets/' + key).update({owner : ownerName});
+    console.log('ça marche');
+  }
+
   constructor() {
     this.getAssets();
   }

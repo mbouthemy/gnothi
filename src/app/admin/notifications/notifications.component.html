@@ -10,8 +10,11 @@
     <p>ID: {{ participant.leid }}</p>
     <p>Pays: {{ participant.country }}</p>
     <p>Informations: {{ participant.purpose }}</p>
+    <br>
+    <p>Ajouter ce participant à la BlockChain ?</p>
   </mat-card-content>
   <mat-card-actions>
-    <button class="btn btn-default" (click)="onBack()">Retour</button>
+        <button mat-raised-button color="primary" (click)="onYes()">Oui</button>
+        <button mat-raised-button color="warn" (click)="onNo()">Non</button>
   </mat-card-actions>
 </mat-card>

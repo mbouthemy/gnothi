@@ -1,11 +1,18 @@
 <app-header></app-header>
-<div class="row">
-  <div class="col-xs-12">
-    <h1>{{ asset.name }}</h1>
-    <h3>{{ asset.value }}</h3>
-    <p>{{ asset.currency }}</p>
-    <p>{{ asset.dateLimit }}</p>
-    <p>{{ asset.owner }}</p>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<mat-card class="example-card">
+  <mat-card-header>
+      <div mat-card-avatar><mat-icon>receipt</mat-icon></div>
+    <mat-card-title> <h3>Contrat : {{ asset.name }} </h3></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+      <p>Valeur: {{ asset.value }}</p>
+      <p>Devise: {{ asset.currency }}</p>
+      <p>Date d'Expiration: {{ asset.dateLimit }}</p>
+      <p>Propriétaire: {{ asset.owner }}</p>
+  </mat-card-content>
+  <mat-card-actions>
     <button class="btn btn-default" (click)="onBack()">Retour</button>
-  </div>
-</div>
+  </mat-card-actions>
+</mat-card>

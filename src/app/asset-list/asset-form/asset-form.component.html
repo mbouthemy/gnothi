@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
-    <h2>Ajouter un nouveau contrat à la BlockChain</h2>
+    <h2 style="text-align:center;">Ajouter un nouveau contrat à la BlockChain</h2>
     <form [formGroup]="assetForm" (ngSubmit)="onSaveAsset()">
       <div class="form-group">
         <label for="name">Nom du contrat</label>
@@ -9,7 +9,7 @@
                class="form-control" formControlName="name">
       </div>
       <div class="form-group">
-        <label for="value">Valeur financière</label>
+        <label for="value">Valeur financière (en Millions)</label>
         <input type="number" id="value"
                class="form-control" formControlName="value">
       </div>
@@ -28,15 +28,11 @@
         <input type="text" id="owner"
                class="form-control" formControlName="owner">
       </div>
-      <div class="form-group">
-        <label for="file">Uploader un document.</label>
-        <input type="file"
-              id="file"
-              (change)="handleFileInput($event.target.files)">
-      </div>
+      <div class="buttonHolder">
       <button class="btn btn-success" [disabled]="assetForm.invalid"
               type="submit">Enregistrer
       </button>
+      </div>
 
     </form>
   </div>

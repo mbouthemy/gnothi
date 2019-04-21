@@ -7,15 +7,20 @@
             <li routerLinkActive="active">
               <a routerLink="/assets">Contrats</a>
             </li>
-            <li routerLinkActive="active" *ngIf="isAdmin">
-                <a routerLink="signin">On est Admin</a>
-            </li>
-            <li routerLinkActive="active" *ngIf="!isAdmin">
-                <a routerLink="signin">On est User</a>
-            </li>
             <li routerLinkActive="active" *ngIf="!isAdmin">
               <a routerLink="/user/transaction">Transaction</a>
-          </li>
+            </li>
+            <li routerLinkActive="active" *ngIf="!isAdmin">
+              <a routerLink="/user/request">Demande d'Ajout</a>
+            </li>
+            <li routerLinkActive="active">
+              <a routerLink="/ledger">Historique</a>
+            </li>
+            <li routerLinkActive="active" *ngIf="isAdmin && isNotification">
+                <a routerLink="/admin/notifications">
+                  <span matBadge="1" matBadgeColor="warn">Notifications</span>
+                </a>
+            </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li routerLinkActive="active">

@@ -2,21 +2,24 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <h2>Listes des HarborChain</h2>
-    <div class="list-group">
-      <button
-        class="list-group-item"
+    <h2 style="text-align:center;">Listes des Contrats</h2>
+    <mat-grid-list cols="3" rowHeight="100px">
+        <mat-grid-tile
         *ngFor="let asset of assets; let i = index"
         (click)="onViewAsset(i)">
+        <div class="text-tile">
         <h3 class="list-group-item-heading">
           {{ asset.name }}
-          <button *ngIf="isAdmin" class="btn btn-default pull-right" (click)="onDeleteAsset(asset)">
-            <span class="glyphicon glyphicon-minus"></span>
-          </button>
         </h3>
-        <p class="list-group-item-text">{{ asset.owner }}</p>
-      </button>
+        <p style="text-align:center;" class="list-group-item-text"><i>Propriétaire: {{ asset.owner }} </i></p>
+        </div>
+        <button style="margin:8px;" *ngIf="isAdmin" class="btn btn-default pull-right" (click)="onDeleteAsset(asset)">
+            <span class="glyphicon glyphicon-minus"></span>
+        </button>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <div style="text-align:center;">
+    <button style="margin:8px;" *ngIf="isAdmin" class="btn btn-primary" (click)="onNewAsset()">Nouveau Contrat</button>
     </div>
-    <button *ngIf="isAdmin" class="btn btn-primary" (click)="onNewAsset()">Nouveau Contrat</button>
   </div>
 </div>

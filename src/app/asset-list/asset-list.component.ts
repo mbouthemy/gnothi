@@ -4,6 +4,8 @@ import { Subscription } from 'rxjs';
 import { AssetsService } from '../services/assets.service';
 import { Router } from '@angular/router';
 import { MessageService } from '../services/message.service';
+import { Operation } from '../models/operations';
+import { OperationsService } from '../services/operations.service';
 
 @Component({
   selector: 'app-asset-list',
@@ -17,17 +19,19 @@ export class AssetListComponent implements OnInit {
   isAdmin: boolean;
 
   constructor(private assetsService: AssetsService, private router: Router,
-              private messageService: MessageService) {}
+              private messageService: MessageService,
+              private operationService: OperationsService) {}
 
   ngOnInit() {
+    // Asset subscription
     this.assetsSubscription = this.assetsService.assetsSubject.subscribe(
       (assets: Asset[]) => {
         this.assets = assets;
       }
     );
     this.assetsService.emitAssets();
+    // Message Service subscription
     this.messageService.isAdmin.subscribe(data => this.isAdmin = data);
-    console.log('value' + this.isAdmin);
   }
 
   onNewAsset() {
@@ -36,6 +40,8 @@ export class AssetListComponent implements OnInit {
 
   onDeleteAsset(asset: Asset) {
     this.assetsService.removeAsset(asset);
+    const newOperation = new Operation('Destruction', asset.name, new Date().toLocaleString());
+    this.operationService.createNewOperation(newOperation);
   }
 
   onViewAsset(id: number) {
