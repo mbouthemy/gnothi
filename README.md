@@ -12,6 +12,12 @@ The library has some requirements :
 ## Files structure
 The application contains a lot of components.
 
+First the Model card for our blockchain:
+Blockchain/
+ - model.cto -> defines the model of the blockchain
+ - permissions.acl -> defines the permissions, here all the users and admin have default permissions
+ - script.js -> script for actions
+
 First the components :
  - header -> define the header of the page
  - sidenav -> define the sidenav of the page
@@ -19,13 +25,16 @@ First the components :
  - asset-list -> component for the gestion of the assets, contains a component for the form and another for a detailed view
  - participant-list -> same but for participants
  - user/transaction -> execute a transaction when log as a user
- - user/new-firm -> add a new firm as a user
+ - user/request -> do a request to add a new firm on the blockchain
+ - admin/notification -> get a notification when a request is executed
+ - ledger -> save all the transactions and suppresion in the ledger
  
  
 Then the services:
 - AssetsService -> service for the asset requests to the server
 - ParticipantService -> same but with participants
 - MessageService -> use for transmission of boolean (isAdmin, isNotification...)
+- DataService -> use to do a request to the http server created by Hyperledger Composer for the blockchain.
 
 
 ## Development server
