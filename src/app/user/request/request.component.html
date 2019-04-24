@@ -28,7 +28,7 @@
         <label for="file">Ajouter un document.</label>
         <input type="file"
               id="file"
-              (change)="handleFileInput($event.target.files)">
+              (change)="handleFileInput()">
       </div>
       <div class="buttonHolder">
         <button class="btn btn-success" [disabled]="participantForm.invalid"

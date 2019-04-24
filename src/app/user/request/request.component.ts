@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Asset } from 'src/app/models/assets';
 import { RequestService } from 'src/app/services/request.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -33,6 +32,10 @@ export class RequestComponent implements OnInit {
     });
   }
 
+  handleFileInput() {
+    console.log('file input');
+  }
+
   onSaveParticipant() {
     const name = this.participantForm.get('name').value;
     const leid = this.participantForm.get('leid').value;
@@ -43,7 +46,7 @@ export class RequestComponent implements OnInit {
     this.router.navigate(['/user']);
     // Add the notification.
     this.messageService.notificationOn();
-    this.snackBar.open("Requête effectuée", "Fermer", {
+    this.snackBar.open('Requête effectuée', 'Fermer', {
       duration: 3000,
     });
   }
