@@ -33,12 +33,12 @@ export class SigninComponent implements OnInit {
 
   onSubmit() {
     const email = this.signupForm.get('email').value;
-    const password = this.signupForm.get('password').value;
-    
-    if (email === 'admin@test.com') {
+    // const password = this.signupForm.get('password').value;
+
+    if (email === 'admin@ngo.com') {
       this.router.navigate(['/admin']);
       this.messageService.changeAdmin();
-    } else if (email === 'user@test.com') {
+    } else if (email === 'user@harbor.com') {
       this.router.navigate(['/user']);
       this.messageService.changeUser();
     } else {
