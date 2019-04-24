@@ -5,3 +5,9 @@ mat-grid-tile {
 .text-tile {
     text-align: center;
 }
+
+mat-card {
+  max-width: 800px;
+  margin: 2em auto;
+  text-align: center;
+}
